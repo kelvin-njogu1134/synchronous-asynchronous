@@ -1,15 +1,17 @@
-void main(){
+void main() async{
   print("It has just started");
-  Sayhello().then((v){
-    print("its over");
-  }
-  );
+  String v = await Sayhello();
+  print(v);
+  print("Its over");
+  
+  
   
   
   
   
 }
 
-Future Sayhello(){
-  return Future.delayed(Duration(seconds:5));
+Future<String> Sayhello() async{
+  await Future.delayed(Duration(seconds:5));
+  return "Future Completed";
 }
