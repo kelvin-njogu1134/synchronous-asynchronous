@@ -1,7 +1,14 @@
 void main() async{
   print("It has just started");
-  String v = await Sayhello();
+  try{
+    String v = await Sayhello();
   print(v);
+  }catch(e){
+    print("Error occured");
+
+  }finally{
+    print("Its a must");
+  }
   print("Its over");
   
   
@@ -13,5 +20,6 @@ void main() async{
 
 Future<String> Sayhello() async{
   await Future.delayed(Duration(seconds:5));
+  throw Exception();
   return "Future Completed";
 }
